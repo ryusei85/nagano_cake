@@ -4,7 +4,7 @@
  		<div class="col-md-10 col-md-offset-1">
 
  			<h4><span style="background-color: silver;">
- 				商品詳細</span>
+ 				商品編集</span>
  			</h4>
 
  		</div>
@@ -13,7 +13,7 @@
 
  			<%= attachment_image_tag @product, :image, :fill, 300, 250, fallback: "no_image.png", size: "300x250" %>
 
- 			<%= form_for(@product, url: admin_product_path) do |f| %>
+ 		<%= form_for(@product, url: admin_product_path) do |f| %>
 
  			<%= f.attachment_field :image %>
 
@@ -43,7 +43,7 @@
          	<%= f.submit "変更を保存", class:"btn bg-primary btn-lg" %>
          </div>
 
-			<% end %>
+		<% end %>
 
  	</div>
 </div>
