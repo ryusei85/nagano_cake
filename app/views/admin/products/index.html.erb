@@ -1,0 +1,36 @@
+
+<div class="container">
+ 	<div class="row">
+
+
+ 			<h4><span style="background-color: silver;">
+ 				商品一覧</span>
+ 			</h4>
+
+
+			<table class="table" style="text-align: center;">
+				<thead>
+					<tr>
+						<th>商品ID</th>
+						<th>商品名</th>
+						<th>税抜価格</th>
+						<th>ジャンル</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
+
+			<% @products.each do |product| %>
+				<tbody>
+					<tr>
+							<td><%= product.id %></td>
+							<td><%= link_to product.name, admin_product_path(product.id) %></td>
+							<td><%= product.price %></td>
+							<td></td>
+							<td></td>
+					</tr>
+				</tbody>
+			<% end %>
+			</table>
+
+	</div>
+</div>

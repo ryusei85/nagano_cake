@@ -1,5 +1,10 @@
 class Admin::ProductsController < ApplicationController
 
+  layout 'admin'
+
+  def top
+  end
+
   def new
     @product = Product.new
   end
@@ -20,14 +25,15 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.update(product_params)
-      redirect_to admin_product_path(@product.id)
-    else
-      render 'edit'
-    end
+    @product.update(product_params)
+    redirect_to admin_product_path(@product.id)
   end
 
-  
+  def index
+    @products = Product.all
+  end
+
+
   private
   def product_params
     params.require(:product).permit(:image, :name, :body, :price)

@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
-class Admins::SessionsController < Devise::SessionsController
+class EndUsers::SessionsController < Devise::SessionsController
 
-  layout 'admin'
-
-  def after_update_path_for(resource)
-    new_admin_session_path
-  end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

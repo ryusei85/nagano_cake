@@ -10,25 +10,36 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- 
+
  *= require_self
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-
-
-
-.page-title {
-	margin-bottom: 100px;
-}
-
-table, th, td {
-	border-style:none!important;
-}
-
-.col-md-2{
+input[type="email"] {
+        width: 300px;
+        height: 40px;
+        margin-left:20px;
+    }
+input[type="password"] {
+        width: 300px;
+        height: 40px;
+        margin-left:20px;
+    }
+.field-email {
+	text-align: center;
 	margin-top: 50px;
 }
-
+.field-password {
+	text-align: center;
+	margin-top: 50px;
+	margin-left:25px;
+}
+.actions {
+	margin-top: 30px;
+	text-align: center;
+}
+.field-password-up {
+	text-align: center;
+	margin-top: 50px;
+}

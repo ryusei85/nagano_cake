@@ -13,7 +13,7 @@
 
  			<%= attachment_image_tag @product, :image, :fill, 300, 250, fallback: "no_image.png", size: "300x250" %>
 
- 			<%= form_for(@product, url:admin_products_path) do |f| %>
+ 		<%= form_for(@product, url:admin_products_path) do |f| %>
 
  			<%= f.attachment_field :image %>
  		</div>
@@ -38,10 +38,10 @@
 			</table>
 		</div>
 
-         <div class="col-md-2 col-md-offset-10">
+         <div class="actions col-md-2 col-md-offset-10">
          	<%= f.submit "新規登録", class:"btn bg-primary btn-lg" %>
          </div>
 
- 			<% end %>
+ 		<% end %>
  	</div>
 </div>
