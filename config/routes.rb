@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'about/about'
   namespace :admin do
     resources :products
   end
 
-  root :to => 'admin/products#top'
+  resources :products, only: [:index, :show, :top]
+
+  resources :cart_products
+
+  root :to => 'products#top'
+
+  get 'home/about'
 
   devise_for :admins, controllers: {
   	sessions: 'admins/sessions',

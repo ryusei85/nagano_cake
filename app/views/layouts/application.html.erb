@@ -10,7 +10,41 @@
   </head>
 
   <body>
-    
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            ながのCAKE
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarEexample3">
+          <ul class="nav navbar-nav navbar-right ">
+
+            <% if end_user_signed_in? %>
+              <li><a href="#">マイページ</a></li>
+              <li><%= link_to "商品一覧", products_path %></li>
+              <li><%= link_to "カート", cart_products_path %></li>
+              <li><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><a href="home/about">about</a></li>
+              <li><%= link_to "商品一覧", products_path %></li>
+              <li><%= link_to "新規登録", new_end_user_registration_path %></li>
+              <li><%= link_to "ログイン", new_end_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <%= yield %>
+
   </body>
+
 </html>
