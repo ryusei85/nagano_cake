@@ -1,0 +1,40 @@
+<div class="container">
+ 	<div class="row">
+ 		<div class="col-md-10 col-md-offset-1">
+
+ 			<h4><span style="background-color: silver;">
+ 				ショッピングカート</span>
+ 			</h4>
+ 		</div>
+
+ 		<div class="table col-md-10 col-md-offset-1">
+ 			<table border='1'>
+ 				<thead>
+ 					<tr>
+ 						<th class="col-lg-5">商品名</th>
+ 						<th class="col-lg-2">単価(税込)</th>
+ 						<th class="col-lg-2">数量</th>
+ 						<th class="col-lg-2">小計</th>
+ 						<th class="col-lg-2" colspan="3"></th>
+ 					</tr>
+ 				</thead>
+ 				
+ 				<% @cart_products.each do |cart_product| %>
+ 				
+ 				<tbody>
+ 					<tr>
+ 						<td><%= attachment_image_tag cart_product, :image, :fill, 100, 50, style: "margin: 5px;" %>
+ 							<%= link_to cart_product..name, product_path(cart_product.product.id) %></td>
+ 						<td><%= (cart_product.product.price * 1.1).ceil %></td>
+ 					<%= form_for @cart_product do |f| %>
+ 						<td><%= f.number_field :quantity, value: @cart_product.quantity %></td>
+ 					<% end %>
+ 						<td><%= (cart_product.product.price * 1.1).ceil * cart_product.quantity %></td>
+ 						<td><%= link_to '削除する', cart_product_path(cart_product.product.id), class: "btn-sm btn-danger", style: "margin: 5px;", method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+ 					</tr>
+ 				</tbody>
+ 				<% end %>
+ 			</table>
+ 		</div>
+ 	</div>
+</div>
