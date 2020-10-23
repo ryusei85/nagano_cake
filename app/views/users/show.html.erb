@@ -1,0 +1,60 @@
+<div class="container">
+ 	<div class="row">
+ 		<div class="col-md-10 col-md-offset-1">
+
+ 			<h4><span style="background-color: silver;">
+ 				マイページ</span>
+ 			</h4>
+ 		</div>
+
+ 		<div class="col-md-3">
+	 		<div class="mypage">
+	 			<h3><strong>登録情報</strong></h3>
+	 		</div>
+	 	</div>
+	 	<div class="col-md-3">
+	 		<%= link_to '編集する', edit_user_path(@end_user.id), class: "mypage-btn btn btn-primary btn-md" %><br />
+	 	</div>
+	 	<div class="col-md-3">
+	 		<%= link_to 'パスワードを変更する', edit_end_user_password_path , class: "mypage-btn btn btn-primary btn-md" %><br />
+	 	</div>
+
+	 	<div class="col-md-12">
+	 		<div class="mypage-table">
+	 			<table border="1">
+	 				<tbody>
+	 					<tr>
+	 						<th>氏名</th>
+	 						<td><%= @end_user.last_name %> <%= @end_user.first_name %></td>
+	 					</tr>
+	 					<tr>
+	 						<th>カナ</th>
+	 						<td><%= @end_user.last_name_kana %> <%= @end_user.first_name_kana %></td>
+	 					</tr>
+	 					<tr>
+	 						<th>郵便番号</th>
+	 						<td><%= @end_user.zipcord %></td>
+	 					</tr>
+	 					<tr>
+	 						<th>住所</th>
+	 						<td><%= @end_user.address %></td>
+	 					</tr>
+	 					<tr>
+	 						<th>電話番号</th>
+	 						<td><%= @end_user.phone_number %></td>
+	 					</tr>
+	 					<tr>
+	 						<th>メールアドレス</th>
+	 						<td><%= @end_user.email %></td>
+	 					</tr>
+	 				</tbody>
+	 			</table>
+	 		</div>
+
+	 		<h3><strong>配送先</strong></h3>
+	 		<%= link_to '一覧を見る', deliveries_path, class: "btn btn-primary btn-md" %>
+
+	 		<h3><strong>注文履歴</strong></h3>
+	 	</div>
+ 	</div>
+</div>

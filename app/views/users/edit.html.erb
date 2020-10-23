@@ -1,0 +1,57 @@
+<div class="container">
+ 	<div class="row">
+ 		<div class="col-md-10 col-md-offset-1">
+
+ 			<h4><span style="background-color: silver;">
+ 				登録情報編集</span>
+ 			</h4>
+
+ 			
+
+ 		</div>
+
+ 		<%= form_for(@end_user, url:user_path) do |f| %>
+
+		<table class="table">
+        	<tbody>
+            	<tr>
+                  <th><%= f.label :名前 %></th>
+                  <td>
+                      <%= f.text_field :last_name, placeholder: "姓"%>
+                      <%= f.text_field :first_name, placeholder: "名" %>
+                  </td>
+                </tr>
+                <tr>
+                  <th><%= f.label :名前, "フリガナ" %></th>
+                  <td>
+                      <%= f.text_field :last_name_kana, placeholder: "セイ" %>
+                      <%= f.text_field :first_name_kana, placeholder: "メイ" %>
+                  </td>
+                </tr>
+                <tr>
+                  <th><%= f.label :email, "メールアドレス" %></th>
+                  <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+                </tr>
+                <tr>
+                  <th><%= f.label :zipcord, "郵便番号(ハイフンなし)" %></th>
+                  <td><%= f.number_field :zipcord %></td>
+                </tr>
+                <tr>
+                  <th><%= f.label :address, "住所" %></th>
+                  <td><%= f.text_field :address, size: '50x10' %></td>
+                </tr>
+                <tr>
+                  <th><%= f.label :phone_number, "電話番号(ハイフンなし)" %></th>
+                  <td><%= f.number_field :phone_number %></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="actions">
+        	<%= f.submit "編集内容を保存する", class: "btn btn-primary btn-md" %>
+        </div>
+        <% end %>
+
+    </div>
+</div>
+

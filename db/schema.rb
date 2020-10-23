@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_150134) do
+ActiveRecord::Schema.define(version: 2020_10_23_013510) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2020_10_19_150134) do
     t.integer "end_user_id"
     t.integer "product_id"
     t.integer "quantity", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "deliveries", force: :cascade do |t|
+    t.integer "end_user_id"
+    t.string "zipcord"
+    t.string "address"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +59,19 @@ ActiveRecord::Schema.define(version: 2020_10_19_150134) do
     t.string "zipcord"
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "end_user_id"
+    t.string "zipcord"
+    t.string "address"
+    t.string "name"
+    t.integer "shipping"
+    t.integer "total_payment"
+    t.integer "payment_method"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
