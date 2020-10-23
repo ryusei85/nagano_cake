@@ -1,0 +1,28 @@
+<div class="container">
+ 	<div class="row">
+ 		<div class="col-md-10 col-md-offset-1">
+
+ 			<h4><span style="background-color: silver;">
+ 				注文情報入力</span>
+ 			</h4>
+ 		</div>
+
+ 		<div class="col-md-12" >
+
+ 		<%= form_for(@order) do |f| %>
+
+ 		<h3><strong>支払い方法</strong></h3>
+	 		<p><%= f.radio_button :payment_method, 0, style: "margin-left: 50px;" %>クレジットカード</p>
+	 		<p><%= f.radio_button :payment_method, 1, style: "margin-left: 50px;" %>銀行振込</p>
+
+	 	<h3><strong>お届け先</strong></h3>
+	 		<p><%= f.radio_button :id, 0, style: "margin-left: 50px;" %>ご自身の住所</p>
+	 		<%= current_end_user.zipcord %>
+	 		<p><%= f.radio_button :id, 0, style: "margin-left: 50px;" %>登録済住所から選択</p>
+	 		<p><%= f.radio_button :id, 0, style: "margin-left: 50px;" %>ご自身の住所</p>
+
+
+ 		<% end %>
+
+ 	</div>
+</div>
