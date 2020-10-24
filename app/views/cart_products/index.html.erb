@@ -23,12 +23,10 @@
  				
  				<tbody>
  					<tr>
- 						<td><%= attachment_image_tag cart_product, :image, :fill, 100, 50, style: "margin: 5px;" %>
- 							<%= link_to cart_product..name, product_path(cart_product.product.id) %></td>
+ 						<td><%= attachment_image_tag cart_product.product, :image, :fill, 100, 50, style: "margin: 5px;" %>
+ 							<%= link_to cart_product.product.name, product_path(cart_product.product.id) %></td>
  						<td><%= (cart_product.product.price * 1.1).ceil %></td>
- 					<%= form_for @cart_product do |f| %>
- 						<td><%= f.number_field :quantity, value: @cart_product.quantity %></td>
- 					<% end %>
+ 						<td><%= cart_product.quantity %></td>
  						<td><%= (cart_product.product.price * 1.1).ceil * cart_product.quantity %></td>
  						<td><%= link_to '削除する', cart_product_path(cart_product.product.id), class: "btn-sm btn-danger", style: "margin: 5px;", method: :delete, "data-confirm" => "本当に消しますか？" %></td>
  					</tr>
