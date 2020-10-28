@@ -28,12 +28,12 @@
           <ul class="nav navbar-nav navbar-right ">
 
             <% if end_user_signed_in? %>
-              <li><a href="#">マイページ</a></li>
+              <li><%= link_to "マイページ", user_path(current_end_user) %></li>
               <li><%= link_to "商品一覧", products_path %></li>
               <li><%= link_to "カート", cart_products_path %></li>
               <li><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
             <% else %>
-              <li><a href="home/about">about</a></li>
+              <li><%= link_to "About", home_about_path %></li>
               <li><%= link_to "商品一覧", products_path %></li>
               <li><%= link_to "新規登録", new_end_user_registration_path %></li>
               <li><%= link_to "ログイン", new_end_user_session_path %></li>

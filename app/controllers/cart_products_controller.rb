@@ -3,6 +3,7 @@ class CartProductsController < ApplicationController
 
   def index
     @cart_products = CartProduct.all
+    @cart_product = CartProduct.new
   end
 
   def create
@@ -20,10 +21,21 @@ class CartProductsController < ApplicationController
     redirect_to cart_products_path
   end
 
+  def update
+    @cart_product = CartProduct.find(params[:id])
+    @cart_product.update(cart_product_params)
+    redirect_to cart_products_path
+  end
 
   def destroy
     @cart_product = CartProduct.find(params[:id])
     @cart_product.destroy
+    redirect_to cart_products_path
+  end
+
+  def destroy_all
+    @cart_product = CartProduct.all
+    @cart_product.destroy_all
     redirect_to cart_products_path
   end
 

@@ -1,17 +1,26 @@
 Rails.application.routes.draw do
 
-  get 'about/about'
   namespace :admin do
     resources :products
+    root :to => 'products#top'
   end
 
   resources :products, only: [:index, :show, :top]
 
-  resources :cart_products, only: [:index, :create, :destroy]
+  resources :cart_products, only: [:index, :create, :update, :destroy, :destroy_all] do
+    delete 'destroy_all'
+  end
 
   resources :users
 
   resources :deliveries
+
+  resources :orders
+  get 'order/confirm' => 'orders#confirm'
+  post 'order/confirm' => 'orders#confirm'
+  get 'order/thanks' => 'orders#thanks'
+
+  resources :order_products
 
   root :to => 'products#top'
 
