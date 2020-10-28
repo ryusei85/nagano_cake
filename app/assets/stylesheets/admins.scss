@@ -16,30 +16,3 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-input[type="email"] {
-        width: 300px;
-        height: 40px;
-        margin-left:20px;
-    }
-input[type="password"] {
-        width: 300px;
-        height: 40px;
-        margin-left:20px;
-    }
-.field-email {
-	text-align: center;
-	margin-top: 50px;
-}
-.field-password {
-	text-align: center;
-	margin-top: 50px;
-	margin-left:25px;
-}
-.actions {
-	margin-top: 30px;
-	text-align: center;
-}
-.field-password-up {
-	text-align: center;
-	margin-top: 50px;
-}

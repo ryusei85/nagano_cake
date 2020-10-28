@@ -9,19 +9,49 @@
 
  		<div class="col-md-12" >
 
- 		<%= form_for(@order) do |f| %>
+ 		<%= form_with model: @order, url: order_confirm_path, method: :post,local: true do |f| %>
 
  		<h3><strong>支払い方法</strong></h3>
-	 		<p><%= f.radio_button :payment_method, 0, style: "margin-left: 50px;" %>クレジットカード</p>
-	 		<p><%= f.radio_button :payment_method, 1, style: "margin-left: 50px;" %>銀行振込</p>
+	 		<%= f.radio_button :payment_method, "クレジットカード", checked: true, style: "margin-left: 50px;" %>クレジットカード<br />
+	 		<%= f.radio_button :payment_method, "銀行振込", style: "margin-left: 50px;" %>銀行振込
 
 	 	<h3><strong>お届け先</strong></h3>
-	 		<p><%= f.radio_button :id, 0, style: "margin-left: 50px;" %>ご自身の住所</p>
-	 		<%= current_end_user.zipcord %>
-	 		<p><%= f.radio_button :id, 0, style: "margin-left: 50px;" %>登録済住所から選択</p>
-	 		<p><%= f.radio_button :id, 0, style: "margin-left: 50px;" %>ご自身の住所</p>
+	 		<%= f.radio_button :address_option, 0, checked: true, style: "margin-left: 50px;" %>ご自身の住所
+ 	 		<div class="order-field" style="margin-left:100px;" >
+		 		<%= current_end_user.zipcord %> <%= current_end_user.address %><br />
+		 		<%= current_end_user.full_name %>
+		 	</div>
 
+	 		<%= f.radio_button :address_option, 1, style: "margin-left: 50px;" %>登録済住所から選択
+	 		<div class="order-field" style="margin-left:100px;" >
+	 		 	<%= f.collection_select :order_address, Delivery.all, :id, :full_delivery %>
+	 		 	
+	 		</div>
 
+	 		<%= f.radio_button :address_option, 2, style: "margin-left: 50px;" %>新しいお届け先
+	 	 	<div class="order-field" style="margin-left:100px;" >
+	 		<table>
+	 			<tbody>
+	 				<tr>
+	 					<th><%= f.label :zipcord, "郵便番号(ハイフンなし)" %></th>
+			 			<td><%= f.number_field :zipcord, min: 0 %></td>
+			 		</tr>
+			 		<tr>
+			 			<th><%= f.label :address, "住所" %></th>
+			 			<td><%= f.text_field :address %></td>
+			 		</tr>
+			 		<tr>
+			 			<th><%= f.label :name, "宛名" %></th>
+			 			<td><%= f.text_field :name %></td>
+			 			
+			 		</tr>
+			 	</tbody>
+			 </table>
+			</div>
+		</div>
+		<div class="col-md-12" style="text-align: center;">
+			<%= f.submit "確認画面へ進む", class: "btn btn-primary btn-lg", style: "width:200px; margin-top:30px;" %>
+		</div>
  		<% end %>
 
  	</div>
