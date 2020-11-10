@@ -2,21 +2,46 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.deli-table th{
+
+span {
+	background-color: silver;
+}
+
+.deli_table th{
 	width: 250px;
 }
-.deli-table td{
+.deli_table td{
 	width: 300px;
 }
-.deli-table tr{
+.deli_table tr{
 	height:50px;
 }
-.deli-table {
+.deli_table {
 	font-size: 20px;
 	margin-top: 20px;
 }
-.deli-btn{
+.deli_btn{
 	width:200px;
 }
-
-
+.deli_table_2 {
+	margin-top: 100px;
+	width: 700px;
+}
+.deli_table_2 th {
+	width: 100px;
+	height: 40px;
+	padding: 5px;
+}
+.deli_table_2 th:nth-child(2) {
+	width: 300px;
+}
+.deli_table_2 th:nth-child(4) {
+	width: 200px;
+}
+.deli_table_2 td {
+	height: 70px;
+	padding: 5px;
+}
+.deli_table_2 td:nth-child(4) {
+	text-align: center;
+}

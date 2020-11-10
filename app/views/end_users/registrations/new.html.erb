@@ -1,11 +1,10 @@
 <div class="container">
   <div class="row">
+
     <div class="col-md-10 col-md-offset-2">
-
-      <h4><span style="background-color: silver;">
-        新規会員登録</span>
+      <h4>
+        <span>新規会員登録</span>
       </h4>
-
     </div>
 
     <div class="col-md-11 col-md-offset-1">
@@ -22,6 +21,7 @@
                       <%= f.text_field :first_name, placeholder: "名" %>
                   </td>
                 </tr>
+
                 <tr>
                   <th><%= f.label :名前, "フリガナ" %></th>
                   <td>
@@ -29,31 +29,36 @@
                       <%= f.text_field :first_name_kana, placeholder: "メイ" %>
                   </td>
                 </tr>
+
                 <tr>
                   <th><%= f.label :email, "メールアドレス" %></th>
                   <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
                 </tr>
+
                 <tr>
                   <th><%= f.label :zipcord, "郵便番号(ハイフンなし)" %></th>
-                  <td><%= f.number_field :zipcord %></td>
+                  <td><%= f.number_field :zipcord, min: 0 %></td>
                 </tr>
+
                 <tr>
                   <th><%= f.label :address, "住所" %></th>
                   <td><%= f.text_field :address, size: '50x10' %></td>
                 </tr>
+
                 <tr>
                   <th><%= f.label :phone_number, "電話番号(ハイフンなし)" %></th>
-                  <td><%= f.number_field :phone_number %></td>
+                  <td><%= f.number_field :phone_number, min: 0 %></td>
                 </tr>
+
                 <tr>
                   <th><%= f.label :password, "パスワード(6文字以上)" %></th>
                   <td><%= f.password_field :password, autocomplete: "new-password" %></td>
                 </tr>
+
                 <tr>
                   <th><%= f.label :password_confirmation, "パスワード確認用" %></th>
                   <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
                 </tr>
-
               </tbody>
             </table>
 
@@ -65,13 +70,12 @@
     </div>
 
     <div class="col-md-11 col-md-offset-1">
-
-      <h4><span style="background-color: silver;">
-        既に登録済みの方</span>
+      <h4>
+        <span>既に登録済みの方</span>
       </h4>
 
-          <p><%= render "end_users/shared/links" %>からログインしてください。</p>
-
+          <p><%= link_to "こちら", new_session_path(resource_name) %>からログインしてください。</p>
     </div>
+
   </div>
 </div>

@@ -1,19 +1,32 @@
 
 <div class="container">
  	<div class="row">
+
  		<div class="col-md-10 col-md-offset-1">
-
- 			<h4><span style="background-color: silver;">
- 				商品新規登録</span>
+ 			<h4>
+ 				<span>商品新規登録</span>
  			</h4>
-
  		</div>
+
+ 		<%= form_for(@product, url:admin_products_path) do |f| %>
+	        <div class="col-md-12">
+		        <% if @product.errors.any? %>
+			        <div id="error_explanation">
+			        	<h4><%= @product.errors.count %>件のエラーが発生しました。</h4>
+		        			<ul>
+		        				<% @product.errors.full_messages.each do |message| %>
+		      						<li><%= message %></li>
+		        				<% end %>
+							</ul>
+		      		</div>
+	     		<% end %>
+	     	</div>
 
  		<div class="col-md-4">
 
- 			<%= attachment_image_tag @product, :image, :fill, 300, 250, fallback: "no_image.png", size: "300x250" %>
+ 			<%= attachment_image_tag @product, :image, :fill, 300, 250, fallback: "noimage.jpg", size: "300x250" %>
 
- 		<%= form_for(@product, url:admin_products_path) do |f| %>
+ 		
 
  			<%= f.attachment_field :image %>
  		</div>

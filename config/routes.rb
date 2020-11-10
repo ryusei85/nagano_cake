@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-    resources :products
     root :to => 'products#top'
+    resources :products, only: [:top, :new, :create, :show,:edit, :update, :destroy, :index]
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:index, :show]
+    get 'home/about'
   end
+
 
   resources :products, only: [:index, :show, :top]
 
@@ -11,16 +15,22 @@ Rails.application.routes.draw do
     delete 'destroy_all'
   end
 
-  resources :users
+  resources :users, only: [:show, :edit, :update, :withdrawl] do
+    member do
+      get 'check'
+      patch "withdrawl"
+    end
+  end
 
-  resources :deliveries
+  resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
 
-  resources :orders
-  get 'order/confirm' => 'orders#confirm'
-  post 'order/confirm' => 'orders#confirm'
-  get 'order/thanks' => 'orders#thanks'
+  resources :orders, only: [:new, :create, :index, :show]
+  
+  get 'confirm' => 'orders#confirm'
+  post 'confirm' => 'orders#confirm'
+  get 'thanks' => 'orders#thanks'
 
-  resources :order_products
+  resources :order_products, only: [:create]
 
   root :to => 'products#top'
 
@@ -33,7 +43,8 @@ Rails.application.routes.draw do
 
   devise_for :end_users, controllers: {
     sessions: 'end_users/sessions',
-    registrations: 'end_users/registrations'
+    registrations: 'end_users/registrations',
+    passwords: 'end_users/passwords'
 }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

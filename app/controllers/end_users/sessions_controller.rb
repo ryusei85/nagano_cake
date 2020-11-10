@@ -2,7 +2,6 @@
 
 class EndUsers::SessionsController < Devise::SessionsController
 
-  layout'application'
 
   # before_action :configure_sign_in_params, only: [:create]
 

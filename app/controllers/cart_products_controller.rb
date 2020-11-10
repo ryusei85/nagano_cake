@@ -1,9 +1,17 @@
 class CartProductsController < ApplicationController
 
 
+  before_action :authenticate_end_user!
+
   def index
-    @cart_products = CartProduct.all
-    @cart_product = CartProduct.new
+        @cart_products = CartProduct.all
+        @cart_product = CartProduct.new
+        @order_product = OrderProduct.new
+      if @cart_products.present?
+        render 'index'
+      else
+        redirect_to products_path
+      end
   end
 
   def create
@@ -18,6 +26,8 @@ class CartProductsController < ApplicationController
       end
     end
     @cart_product.save
+
+
     redirect_to cart_products_path
   end
 
@@ -44,6 +54,7 @@ class CartProductsController < ApplicationController
   def cart_product_params
     params.require(:cart_product).permit(:quantity, :product_id).merge(end_user_id: current_end_user.id)
   end
+
 
 
 end

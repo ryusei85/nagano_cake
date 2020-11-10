@@ -1,0 +1,15 @@
+// Place all the styles related to the admin/users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.admin_user_table th {
+	width:100px;
+	height: 50px;
+}
+.admin_user_table th:nth-child(2) {
+	width:150px;
+}
+.admin_user_table th:nth-child(3) {
+	width:150px;
+}

@@ -2,7 +2,10 @@ class Admin::ProductsController < ApplicationController
 
   layout 'admin'
 
+  before_action :authenticate_admin!
+
   def top
+    @orders = Order.all
   end
 
   def new
@@ -11,8 +14,11 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save
-    redirect_to admin_product_path(@product.id)
+    if @product.save
+      redirect_to admin_product_path(@product.id)
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -25,12 +31,22 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
-    redirect_to admin_product_path(@product.id)
+    if @product.update(product_params)
+      redirect_to admin_product_path(@product.id)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to admin_products_path
   end
 
   def index
     @products = Product.all
+    @products = Product.page(params[:page]).per(10)
   end
 
 

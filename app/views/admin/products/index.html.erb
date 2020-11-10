@@ -2,20 +2,26 @@
 <div class="container">
  	<div class="row">
 
-
- 			<h4><span style="background-color: silver;">
- 				商品一覧</span>
+ 		<div class="col-md-10 col-md-offset-1">
+ 			<h4>
+ 				<span>商品一覧</span>
  			</h4>
 
+ 			<%= link_to new_admin_product_path, class: "btn btn-primary btn-circle", size: "30x30" do %>
+ 				<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+ 			<% end %>
 
-			<table class="table" style="text-align: center;">
+ 		</div>
+
+
+			<table class="table">
 				<thead>
 					<tr>
 						<th>商品ID</th>
 						<th>商品名</th>
 						<th>税抜価格</th>
-						<th>ジャンル</th>
-						<th>ステータス</th>
+						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 
@@ -31,6 +37,10 @@
 				</tbody>
 			<% end %>
 			</table>
+
+ 			<div class="pagenate">
+ 				<%= paginate @products %>
+ 			</div>
 
 	</div>
 </div>
