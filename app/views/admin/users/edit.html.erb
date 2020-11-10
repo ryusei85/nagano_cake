@@ -1,0 +1,61 @@
+<div class="container">
+ 	<div class="row">
+
+ 		<div class="col-md-10 col-md-offset-1">
+ 			<h4>
+ 				<span><%= @end_user.full_name %>の会員詳細</span>
+ 			</h4>
+ 		</div>
+
+ 		<div class="col-md-5">
+
+ 			<%= form_for(@end_user, url: admin_user_path) do |f| %>
+
+	            <table class="table">
+	              <tbody>
+	                <tr>
+	                  <th>顧客ID</th>
+	                  <td>
+	                      <%= @end_user.id %>
+	                  </td>
+	                </tr>
+	                  <th>氏名</th>
+	                  <td>
+	                      <%= f.text_field :last_name %>
+	                      <%= f.text_field :first_name%>
+	                  </td>
+	                </tr>
+	                <tr>
+	                  <th>フリガナ</th>
+	                  <td>
+	                      <%= f.text_field :last_name_kana %>
+	                      <%= f.text_field :first_name_kana %>
+	                  </td>
+	                </tr>
+	                <tr>
+	                  <th>郵便番号</th>
+	                  <td><%= f.number_field :zipcord %></td>
+	                </tr>
+	                <tr>
+	                  <th>住所</th>
+	                  <td><%= f.text_field :address %></td>
+	                </tr>
+	                <tr>
+	                  <th>電話番号</th>
+	                  <td><%= f.number_field :phone_number %></td>
+	                </tr>
+	                <tr>
+	                  <th>メールアドレス</th>
+	                  <td><%= f.text_field :email %></td>
+	                </tr>
+
+	              </tbody>
+	            </table>
+	    </div>
+	    <div class="action col-md-12">
+	    	<%= f.submit '編集する', class: "btn btn-primary btn-md" %>
+	  	</div>
+	  	<% end %>
+
+	</div>
+</div>

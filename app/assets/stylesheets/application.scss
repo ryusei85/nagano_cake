@@ -17,37 +17,14 @@
 @import "bootstrap";
 
 
-
-.page-title {
-	margin-bottom: 100px;
+#error_explanation {
+	color: red;
+}
+.withdrawl {
+	text-align: center;
 }
 
 
-
-.col-md-2{
-	margin-top: 50px;
-}
-
-.index-products{
-	width:100%;
-}
-.index-products-1{
-	width: 200px;
-	height: 250px;
-	margin-right:30px;
-}
-
-.top-image {
-	width: 500px;
-	height: 250px;
-	background-image: url("top-image.png");
-	display:table;
-}
-.introduction{
-  display:table-cell;
-  vertical-align:middle;
-  text-align: center;
-}
 .about-image{
 	width: 500px;
 	height: 250px;
@@ -55,15 +32,4 @@
 	margin-left:325px;
 }
 
-.mypage-table th{
-	width: 250px;
-}
-.mypage-table td{
-	width: 600px;
-}
-.mypage-table tr{
-	height:50px;
-}
-.mypage-table {
-	font-size: 20px;
-}
+

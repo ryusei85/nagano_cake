@@ -1,34 +1,51 @@
 <div class="container">
  	<div class="row">
- 		<div class="col-md-10 col-md-offset-1">
 
- 			<h4><span style="background-color: silver;">
- 				配送先登録/一覧</span>
+ 		<div class="col-md-10 col-md-offset-1">
+ 			<h4>
+ 				<span>配送先登録/一覧</span>
  			</h4>
  		</div>
 
+	        <div class="col-md-12">
+		        <% if @delivery.errors.any? %>
+			        <div id="error_explanation">
+			        	<h4><%= @delivery.errors.count %>件のエラーが発生しました。</h4>
+		        			<ul>
+		        				<% @delivery.errors.full_messages.each do |message| %>
+		      						<li><%= message %></li>
+		        				<% end %>
+							</ul>
+		      		</div>
+	     		<% end %>
+	     	</div>
+
  		<div class="col-md-12">
- 			<table class="deli-table">
+ 			<table class="deli_table">
  				<tbody>
  					<%= form_for(@delivery, url: delivery_path) do |f| %>
- 					<tr>
- 						<th><%= f.label :zipcord, "郵便番号(ハイフンなし)" %></th>
- 						<td><%= f.text_field :zipcord %></td>
- 						<td></td>
- 					</tr>
- 					<tr>
- 						<th><%= f.label :address, "住所" %></th>
- 						<td><%= f.text_field :address, size: "50x10" %></td>
- 						<td></td>
- 					</tr>
- 					<tr>
- 						<th><%= f.label :name, "宛名" %></th>
- 						<td><%= f.text_field :name %></td>
- 						<td><%= f.submit '編集する', class: "deli-btn btn btn-primary btn-md" %></td>
- 					</tr>
+	 					<tr>
+	 						<th><%= f.label :zipcord, "郵便番号(ハイフンなし)" %></th>
+	 						<td><%= f.text_field :zipcord %></td>
+	 						<td></td>
+	 					</tr>
+
+	 					<tr>
+	 						<th><%= f.label :address, "住所" %></th>
+	 						<td><%= f.text_field :address, size: "50x10" %></td>
+	 						<td></td>
+	 					</tr>
+
+	 					<tr>
+	 						<th><%= f.label :name, "宛名" %></th>
+	 						<td><%= f.text_field :name %></td>
+	 						<td><%= f.submit '編集する', class: "deli-btn btn btn-primary btn-md" %></td>
+	 					</tr>
+	 					<tr>
  					<% end %>
  				</tbody>
  			</table>
  		</div>
+
  	</div>
 </div>

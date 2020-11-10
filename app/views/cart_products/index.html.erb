@@ -1,68 +1,83 @@
 <div class="container">
  	<div class="row">
- 		<div class="col-md-5 col-md-offset-1">
 
- 			<h4><span style="background-color: silver;">
- 				ショッピングカート</span>
+ 		<div class="col-md-5 col-md-offset-1">
+ 			<h4>
+ 				<span>ショッピングカート</span>
  			</h4>
  		</div>
- 		<div class="col-md-5" style="text-align: right;">
+
+ 		<div class="destroy_all col-md-5">
  			<%= button_to "カートを空にする", cart_product_destroy_all_path(current_end_user.cart_products), class: "del-all btn btn-danger btn-md", method: :delete, "data-confirm" => "本当に空にカートをしますか？" %>
  		</div>
 
- 		<div class="table col-md-10 col-md-offset-1" style="margin-top: 30px;">
 
- 			<table border='1' class="cart-table col-md-10">
- 				<thead>
- 					<tr>
- 						<th style="width:400px; height: 70px; padding:10px;">商品名</th>
- 						<th style="width:130px; padding:10px;">単価(税込)</th>
- 						<th style="width:130px; padding:10px;">数量</th>
- 						<th style="width:130px; padding:10px;">小計</th>
- 						<th style="width:130px; padding:10px;" colspan="3"></th>
- 					</tr>
- 				</thead>
- 				
- 				<% @sum = 0 %>
- 				<% @cart_products.each do |cart_product| %>
- 				<tbody>
- 					<tr>
- 						<td><%= attachment_image_tag cart_product.product, :image, :fill, 100, 50, style: "margin: 5px;" %>
- 							<%= link_to cart_product.product.name, product_path(cart_product.product.id) %></td>
- 						<td><%= (cart_product.product.price * 1.1).ceil %></td>
- 						<td>
- 							<%= form_for(@cart_product, url: cart_product_path(cart_product.id), method: :patch) do |f| %>
- 							<%= f.number_field :quantity, min: 1, value: cart_product.quantity, class: "qnt-field" %>
- 							<%= f.submit '変更', class: "btn btn-primary btn-sm" %>
- 							<% end %>
- 						</td>
- 						<td><%= (cart_product.product.price * 1.1).ceil * cart_product.quantity %></td>
+ 		<table border='1' class="cart_table col-md-10 col-md-offset-1">
+ 			<thead>
+ 				<tr>
+					<th>商品名</th>
+ 					<th>単価(税込)</th>
+ 					<th>数量</th>
+ 					<th>小計</th>
+ 					<th colspan="3"></th>
+ 				</tr>
+ 			</thead>
+
+ 			<% @sum = 0 %>
+ 			<% @cart_products.each do |cart_product| %>
+ 			<tbody>
+ 				<tr>
+
+					<td>
+						<%= attachment_image_tag cart_product.product, :image, :fill, 100, 50, style: "margin: 5px;" %>
+ 						<%= link_to cart_product.product.name, product_path(cart_product.product.id) %>
+ 					</td>
+
+ 					<td><%= (cart_product.product.price * 1.1).ceil %></td>
+
+ 					<td>
+ 						<%= form_for(@cart_product, url: cart_product_path(cart_product.id), method: :patch) do |f| %>
+ 						<%= f.number_field :quantity, min: 1, value: cart_product.quantity, class: "qnt-field" %>
+						<%= f.submit '変更', class: "btn btn-primary btn-sm" %>
+ 						<% end %>
+ 					</td>
+
+ 					<td>
+ 						<%= (cart_product.product.price * 1.1).ceil * cart_product.quantity %>
  						<% @sum += (cart_product.product.price * 1.1).ceil * cart_product.quantity %>
- 						<td style="text-align: center;">
- 							<%= link_to '削除する', cart_product_path(cart_product), class: "btn btn-danger btn-md", style: "margin: 5px;", method: :delete, "data-confirm" => "本当に削除しますか？" %>
- 						</td>
- 					</tr>
- 				</tbody>
- 				<% end %>
- 			</table>
- 		</div>
+ 					</td>
 
- 		<div class="col-md-10 col-md-offset-1" style="margin-top: 30px; float:left;">
+ 					<td>
+ 						<%= link_to '削除する', cart_product_path(cart_product), class: "btn btn-danger btn-md", style: "margin: 5px;", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+ 					</td>
+
+ 				</tr>
+ 			</tbody>
+ 			<% end %>
+ 		</table>
+
+
+ 		<div class="cart_total col-md-10 col-md-offset-1">
+
  			<%= link_to '買い物を続ける', products_path, class: "btn btn-primary btn-md" %>
- 			<table border='1' class="cart-table" style="float:right;">
+
+ 			<table border='1' class="cart_total_table">
  				<tbody>
  					<tr>
- 						<th style="width:130px; height: 70px; padding:10px;">合計金額</th>
- 						<td style="width:130px; height: 70px; padding:10px;">
- 							<%= @sum %>
- 						</td>
+
+ 						<th>合計金額</th>
+ 						<td><%= @sum %></td>
+
  					</tr>
  				</tbody>
  			</table>
+
  		</div>
 
- 		<div class="col-md-10 col-md-offset-1" style="text-align: center;">
- 			<%= link_to '情報入力に進む', new_order_path, class: "btn btn-success btn-lg", style: "width:200px; margin-top:30px;" %>
+
+ 		<div class="cart_btn col-md-12">
+ 			<%= link_to '情報入力に進む', new_order_path, class: "btn btn-success btn-lg" %>
  		</div>
+
  	</div>
 </div>

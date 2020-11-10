@@ -19,7 +19,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/admin">
             ながのCAKE
           </a>
         </div>
@@ -29,11 +29,11 @@
 
             <% if admin_signed_in? %>
               <li><%= link_to "商品一覧", admin_products_path %></li>
-              <li><%= link_to "会員一覧", admin_products_path %></li>
-              <li><%= link_to "注文履歴一覧", admin_products_path %></li>
+              <li><%= link_to "会員一覧", admin_users_path %></li>
+              <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
               <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
             <% else %>
-              <li><a href="home/about">about</a></li>
+              <li><%= link_to "About", admin_home_about_path %></li>
               <li><%= link_to "商品一覧", admin_products_path %></li>
               <li><%= link_to "新規登録", new_admin_registration_path %></li>
               <li><%= link_to "ログイン", new_admin_session_path %></li>

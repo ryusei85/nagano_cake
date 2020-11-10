@@ -1,5 +1,7 @@
 class DeliveriesController < ApplicationController
 
+	before_action :authenticate_end_user!
+
 	def index
 		@delivery = Delivery.new
 		@deliveries = Delivery.all
@@ -7,8 +9,12 @@ class DeliveriesController < ApplicationController
 
 	def create
 		@delivery = Delivery.new(delivery_params)
-		@delivery.save
-		redirect_to deliveries_path(@delivery)
+		if @delivery.save
+			redirect_to deliveries_path(@delivery)
+		else
+			@deliveries = Delivery.all
+			render 'index'
+		end
 	end
 
 	def edit
@@ -17,8 +23,11 @@ class DeliveriesController < ApplicationController
 
 	def update
 		@delivery = Delivery.find(params[:id])
-		@delivery.update(delivery_params)
-		redirect_to deliveries_path(@delivery)
+		if @delivery.update(delivery_params)
+			redirect_to deliveries_path(@delivery)
+		else
+			render 'edit'
+		end
 	end
 
   	def destroy

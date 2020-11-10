@@ -1,28 +1,38 @@
-<%= stylesheet_link_tag "admins", :media => "all" %>
-
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
 
-            <h4><span style="background-color: silver;">
-                会員の方はこちらからログイン</span>
+        <div class="col-md-9 col-md-offset-3">
+            <h4>
+              <span>会員の方はこちらからログイン</span>
             </h4>
+        </div>
 
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="field-email">
-              <%= f.label :メールアドレス %>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </div>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-            <div class="field-password">
-              <%= f.label :パスワード %>
-              <%= f.password_field :password, autocomplete: "current-password" %>
-            </div>
+        <div class="col-md-8 col-md-offset-4">
+          <table>
+            <tbody>
+              <tr>
+                <th><%= f.label :メールアドレス %></th>
+                <td><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "30x10", style: "margin: 10px;" %></td>
+              </tr>
 
+              <tr>
+                <th><%= f.label :パスワード %></th>
+                <td><%= f.password_field :password, autocomplete: "current-password", size: "30x10", style: "margin: 10px;" %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="col-md-9">
             <div class="password-forget" style="text-align: right;">
               <%= link_to "=>パスワードを忘れた方はこちら", new_password_path(resource_name) %>
             </div>
+        </div>
 
+        <div class="col-md-12">
             <div class="actions">
               <%= f.submit "ログイン", class:"btn bg-primary" %>
             </div>
@@ -30,15 +40,10 @@
         </div>
 
         <div class="col-md-6 col-md-offset-3">
-
-            <h4><span style="background-color: silver;">
-                登録がお済みでない方</span>
+            <h4>
+              <span>登録がお済みでない方</span>
             </h4>
-        </div>
-
-        <div class="col-md-8 col-md-offset-4">
             <p><%= link_to "こちら", new_registration_path(resource_name) %> から新規登録を行ってください。</p>
         </div>
     </div>
 </div>
-

@@ -2,27 +2,27 @@
  	<div class="row">
 
 
- 		<div class="col-md-10 col-md-offset-2">
+ 		<div class="product-show col-md-10 col-md-offset-2">
  			<div class="col-md-5">
 
- 				<%= attachment_image_tag @product, :image, :fill, 200, 150 %>
+ 				<%= attachment_image_tag @product, :image, :fill, 300, 250 %>
 
  			</div>
 
  			<div class="col-md-5">
 
  				<h2><%= @product.name %></h2>
- 					<%= @product.body %><br />
- 					<%= @product.price %>
+ 				<p class="product-body"><%= @product.body %></p>
+ 				<h3>¥ <%= @product.price %> 　(税込)</h3>
  			</div>
  		</div>
 
- 		<div class="col-md-10 col-md-offset-2" style="text-align: right;">
+ 		<div class="form col-md-10 col-md-offset-2">
 
-	      <%= form_for @cart_product do |f| %>
-	        <%= f.hidden_field :product_id, value: @product.id %>
-	        <%= f.select :quantity, options_for_select((1..20).to_a, { :selected => @cart_product.quantity.to_i }), include_blank: "個数選択" %>
-	        <%= f.submit "カートに入れる" %>
+		<%= form_for @cart_product, url: cart_products_path do |f| %>
+				<%= f.hidden_field :product_id, value: @product.id %>
+				<%= f.select :quantity, options_for_select((1..20).to_a) %>
+	        <%= f.submit "カートに入れる", class: "btn btn-primary btn-md" %>
 	      <% end %>
  		</div>
  	</div>

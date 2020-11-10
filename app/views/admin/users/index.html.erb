@@ -1,0 +1,40 @@
+<div class="container">
+ 	<div class="row">
+
+ 		<div class="col-md-10 col-md-offset-1">
+ 			<h4>
+ 				<span>会員一覧</span>
+ 			</h4>
+ 		</div>
+
+ 		<div class="col-md-10 col-md-offset-2">
+
+ 			<table class="table admin_user_table">
+ 				<thead>
+ 					<tr>
+ 						<th>会員ID</th>
+ 						<th>氏名</th>
+ 						<th>メールアドレス</th>
+ 						<th>ステータス</th>
+ 					</tr>
+ 				</thead>
+ 				<tbody>
+ 					<% @end_users.each do |end_user| %>
+ 					<tr>
+ 						<td><p><%= end_user.id %></p></td>
+ 						<td><p><%= link_to end_user.full_name, admin_user_path(end_user.id) %></p></td>
+ 						<td><p><%= end_user.email %></p></td>
+ 						<td><p><%= end_user.is_deleted %></td>
+ 					</tr>
+ 					<% end %>
+ 				</tbody>
+ 			</table>
+ 		</div>
+
+ 		<div class="pagenate">
+ 			<%= paginate @end_users %>
+ 		</div>
+
+ 	</div>
+</div>
+

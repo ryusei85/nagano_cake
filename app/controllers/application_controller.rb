@@ -5,18 +5,22 @@ class ApplicationController < ActionController::Base
    before_action :set_current_end_user
 
 
-    def after_sign_in_path_for(resource)
-      case resource
-      when Admin
-          admin_root_path
-      when EndUser
-          root_path
-      end
+  def after_sign_in_path_for(resource_or_scope)
+    if resource_or_scope.is_a?(Admin)
+      admin_root_path
+    else
+      root_path
     end
+  end
 
-    def after_sign_out_path_for(resource)
-        root_path(resource)
+  def after_sign_out_path_for(resource_or_scope)
+    if resource_or_scope == :admin
+      new_admin_session_path
+    else
+      root_path
     end
+  end
+
 
     def set_current_end_user
       @current_end_user = EndUser.find_by(id: session[:end_user_id])

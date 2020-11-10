@@ -1,43 +1,45 @@
 
 <div class="container">
  	<div class="row">
+
  		<div class="col-md-10 col-md-offset-1">
-
- 			<h4><span style="background-color: silver;">
- 				商品詳細</span>
+ 			<h4>
+ 				<span>商品詳細</span>
  			</h4>
-
  		</div>
 
- 		<div class="col-md-4">
+ 		<div class="admin_product col-md-12">
+	 		<div class=" col-md-4">
 
- 			<%= attachment_image_tag @product, :image, :fill, 300, 250, fallback: "no_image.png", size: "300x250" %>
+	 			<%= attachment_image_tag @product, :image, :fill, 300, 250, fallback: "noimage.jpg", size: "300x250" %>
 
- 		</div>
+	 		</div>
 
- 		<div class="col-md-8">
+	 		<div class="col-md-8">
 
-			<table class="table">
-				<tbody>
-					<tr>
-						<th>商品名</th>
-						<td><%= @product.name %></td>
-					</tr>
-					<tr>
-						<th>商品説明</th>
-						<td><%= @product.body %></td>
-					</tr>
-					<tr>
-						<th>税抜価格</th>
-						<td><%= @product.price %> 円</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>商品名</th>
+							<td><p><%= @product.name %></p></td>
+						</tr>
+						<tr>
+							<th>商品説明</th>
+							<td><p><%= @product.body %></p></td>
+						</tr>
+						<tr>
+							<th>税込価格 (税抜価格)</th>
+							<td><p><%= (@product.price * 1.1).ceil %>　(<%= @product.price %>) 円</p></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
-         <div class="col-md-2 col-md-offset-10">
-         	<%= link_to "編集する", edit_admin_product_path, class:"btn bg-primary btn-lg" %>
-         </div>
+	        <div class="col-md-2 col-md-offset-10">
+				<%= link_to "編集する", edit_admin_product_path, class:"btn bg-primary btn-lg" %>
+				<%= link_to '削除する', admin_product_path(@product), class: "btn btn-danger btn-lg", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+	       	</div>
+	    </div>
 
 
  	</div>
