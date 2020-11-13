@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
 	def withdrawl
 	    @end_user = EndUser.find(current_end_user.id)
-	    @end_user.update(is_deleted: "true")
+	    @end_user.update(is_deleted: "退会")
 	    reset_session
 	    redirect_to root_path
 	end

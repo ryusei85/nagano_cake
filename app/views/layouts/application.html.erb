@@ -27,6 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarEexample3">
           <ul class="nav navbar-nav navbar-right ">
 
+            <% pp end_user_signed_in? %>
             <% if end_user_signed_in? %>
               <li><%= link_to "マイページ", user_path(current_end_user) %></li>
               <li><%= link_to "商品一覧", products_path %></li>
