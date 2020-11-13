@@ -3,6 +3,14 @@
 class Admins::RegistrationsController < Devise::RegistrationsController
 
   layout 'admin'
+
+  def after_sign_in_path_for(resource)
+    admin_root_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    new_admin_session_path
+  end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

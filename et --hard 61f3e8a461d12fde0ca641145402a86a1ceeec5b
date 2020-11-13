@@ -1,0 +1,62 @@
+[33mcommit 61f3e8a461d12fde0ca641145402a86a1ceeec5b[m[33m ([m[1;36mHEAD -> [m[1;32mnagano_cake2[m[33m, [m[1;31morigin/nagano_cake2[m[33m)[m
+Author: vagrant <vagrant@localhost.localdomain>
+Date:   Tue Nov 10 03:31:11 2020 +0000
+
+    テスト完了
+
+[33mcommit 920a8a2d75c0be23ffd02f14837cd56d8b69d19b[m
+Author: vagrant <vagrant@localhost.localdomain>
+Date:   Wed Oct 28 03:03:57 2020 +0000
+
+    [add]注文機能
+
+[33mcommit 6cded1f4cfdce2701c19805811ea2f8f1c2078b9[m
+Author: vagrant <vagrant@localhost.localdomain>
+Date:   Sun Oct 25 02:34:51 2020 +0000
+
+    [add]cart_product同一商品まとめる機能
+
+[33mcommit cc801a366dd1f61a77f1ea6dfe6f6307cf7db22f[m
+Author: vagrant <vagrant@localhost.localdomain>
+Date:   Sat Oct 24 01:05:25 2020 +0000
+
+    [add]cart_product
+
+[33mcommit 344843ed1c8afb78d12e9bb138afa143460bd754[m
+Author: vagrant <vagrant@localhost.localdomain>
+Date:   Fri Oct 23 04:20:15 2020 +0000
+
+    [add]mypage,delivery
+
+[33mcommit 1aaf3b9af74da94ff6fc60d915d8117e5a40d18f[m
+Author: vagrant <vagrant@localhost.localdomain>
+Date:   Wed Oct 21 01:39:31 2020 +0000
+
+    [add]top,index,show,cart機能
+
+[33mcommit bd54c22fa64c8555a5ccdfbc9d61b8fc05315062[m
+Author: vagrant <vagrant@localhost.localdomain>
+Date:   Thu Oct 15 14:18:31 2020 +0000
+
+     "[add]devise/end_users"
+    "
+    
+    "
+
+[33mcommit ec1b7933b01862e29e92db2c0b35fe5a3011ef0c[m
+Author: vagrant <vagrant@localhost.localdomain>
+Date:   Tue Oct 13 12:12:40 2020 +0000
+
+    [add]admin/new,show,edit
+
+[33mcommit fe9c607d85508a24f66ab4f2f23ffd49d5209f8e[m
+Author: vagrant <vagrant@localhost.localdomain>
+Date:   Tue Oct 13 02:58:45 2020 +0000
+
+    first commit
+
+[33mcommit 71969d72521bf6bae263bd64769e47e4eff32f59[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: vagrant <vagrant@localhost.localdomain>
+Date:   Tue Oct 13 02:46:58 2020 +0000
+
+    first commit
