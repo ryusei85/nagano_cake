@@ -12,7 +12,7 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= render "end_users/shared/error_messages", resource: resource %>
 
-            <table class="table">
+            <table class="sign_up_table col-xs-12">
               <tbody>
                 <tr>
                   <th><%= f.label :名前 %></th>
@@ -42,7 +42,7 @@
 
                 <tr>
                   <th><%= f.label :address, "住所" %></th>
-                  <td><%= f.text_field :address, size: '50x10' %></td>
+                  <td><%= f.text_field :address, class: "sign_up_table_address" %></td>
                 </tr>
 
                 <tr>
