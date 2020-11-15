@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
 span {
 	background-color: silver;
 }
@@ -21,6 +22,10 @@ p{
 .order_new_table th {
 	padding: 5px;
 	font-size: 15px;
+}
+.order_field_address {
+	width: 300px;
+	height: 25px;
 }
 
 .order_confirm {
@@ -115,4 +120,47 @@ p{
 }
 .order_show_table_3 {
 	margin-bottom: 50px;
+}
+
+
+@media screen and (max-width:425px) {
+	
+	.delivery_form{
+		margin-left: 30px;
+	}
+	.order-field {
+		margin-left: 50px;
+	}
+	.order_field_address {
+		width: 170px;
+		height: 25px;
+	}
+	.order_new_table th {
+		padding: 5px;
+		font-size: 12px;
+	}
+	.order_confirm_table th {
+		width: 100px;
+		height: 20px;
+		padding:5px;
+	}
+	.order_confirm_table th:nth-child(1) {
+		width: 150px;
+	}
+	.order_confirm_table_2 {
+		margin-top: 5px;
+	}
+	.order_confirm_table_2 th {
+		width: 100px;
+		height: 50px;
+		padding: 5px;
+	}
+	.order_confirm_table_2 td {
+		width: 100px;
+		height: 50px;
+		padding: 5px;
+	}
+	.order_cart_table th:nth-child(2) {
+		width: 250px;
+	}
 }

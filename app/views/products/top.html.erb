@@ -3,7 +3,7 @@
 <div class="container">
  	<div class="row">
 
- 		<div class="col-md-10 col-md-offset-2">
+ 		<div class="col-xs-12 col-md-10 col-md-offset-2">
  			<div class="introduction">
  				<strong>
  						ようこそ、NaganoCakeへ！<br>
@@ -14,7 +14,7 @@
 			</div>
 		</div>
 
- 		<div class="col-md-10 col-md-offset-2">
+ 		<div class="col-xs-12 col-md-10 col-md-offset-2">
 
  			<h2 class="top-h2">おすすめ商品</h2>
 
@@ -25,7 +25,7 @@
 	 					<%= link_to product_path(product.id) do %>
 	 						<%= attachment_image_tag product, :image, :fill, 150, 100 %><br />
 	 					<% end %>
-	 					<p class="product-name"><%= product.name %></p>
+	 					<p class="product-name"><%= link_to product.name, product_path(product.id) %></p>
 	 					<p><%= product.price %></p>
 	 				</div>
  				<% end %>

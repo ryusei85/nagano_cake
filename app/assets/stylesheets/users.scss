@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
 span {
 	background-color: silver;
 }
@@ -16,9 +17,11 @@ h3 {
 }
 .mypage_table th{
 	width: 250px;
+	padding:5px;
 }
 .mypage_table td{
 	width: 600px;
+	padding:5px;
 }
 .mypage_table tr{
 	height:50px;
@@ -32,4 +35,29 @@ h3 {
 	padding-top: 15px;
 	float: left;
 	margin-left: 75px;
+}
+.mypage_edit th{
+	padding-right:40px;
+	padding-top:20px;
+}
+.mypage_edit_action {
+	margin-top: 20px;
+}
+
+
+@media screen and (max-width:425px) {
+	
+
+	.mypage_edit th{
+		padding-right:45px;
+		padding-left: 30px;
+		padding-top:20px;
+	}
+	.mypage_edit td {
+		padding: 5px;
+	}
+	.mypage_edit_action {
+		margin-top: 20px;
+		text-align: center;
+	}
 }

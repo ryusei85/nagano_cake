@@ -25,6 +25,10 @@
 	margin-right:30px;
 	float: left;
 }
+.products_image {
+	width: 250px;
+	height: 200px;
+}
 .index-path{
 	text-align: right;
 }
@@ -49,4 +53,30 @@
 }
 .form{
 	text-align: right;
+}
+
+@media screen and (max-width:425px) {
+
+	.index-products-1 {
+		width: 150px;
+		height: 200px;
+		margin-top: 0;
+		margin-left:17px;
+		float: left;
+	}
+	.index-products-1 p {
+		font-size: 13px;
+	}
+	.products_image {
+		width: 150px;
+		height: 100px;
+	}
+	.product-show{
+		margin-top: 0;
+	}
+	.product_image {
+		width: 100%;
+		height: 250px;
+	}
+
 }

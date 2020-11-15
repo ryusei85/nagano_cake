@@ -9,7 +9,7 @@
 				<% @products.each do |product| %>
 				<div class="index-products-1">
 	 					<%= link_to product_path(product.id) do %>
-	 						<%= attachment_image_tag product, :image, :fill, 200, 150 %>
+	 						<%= attachment_image_tag product, :image, :fill, 200, 150, class: "products_image" %>
 	 					<% end %>
 	 					<p class="product-name"><%= product.name %></p>
 	 					<p><%= product.price %></p>

@@ -10,7 +10,7 @@
 
  		<%= form_with model: @order, url: confirm_path, method: :post,local: true do |f| %>
 
-	 		<div class="col-md-12">
+	 		<div class="col-xs-12 col-md-12">
 		 		<h4><strong>支払い方法</strong></h4>
 		 			<div class="delivery_form">
 						<p><%= f.radio_button :payment_method, "クレジットカード", checked: true %>クレジットカード</p>
@@ -18,7 +18,7 @@
 					</div>
 			</div>
 
-			<div class="col-md-12">
+			<div class="col-xs-12 col-md-12">
 			 	<h4><strong>お届け先</strong></h4>
 			 		<div class="delivery_form">
 				 		<h4><%= f.radio_button :address_option, 0, checked: true %>ご自身の住所</h4>
@@ -52,7 +52,7 @@
 
 							 		<tr>
 							 			<th><%= f.label :address, "住所" %></th>
-							 			<td><%= f.text_field :address, size: "50x10" %></td>
+							 			<td><%= f.text_field :address, class: "order_field_address" %></td>
 							 		</tr>
 
 							 		<tr>
@@ -65,7 +65,7 @@
 					</div>
 			</div>
 
-			<div class="actions col-md-12">
+			<div class="actions col-xs-12 col-md-12">
 				<%= f.submit "確認画面へ進む", class: "btn btn-primary btn-lg", style: "width:200px; margin-top:30px;" %>
 			</div>
 
