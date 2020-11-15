@@ -2,13 +2,7 @@
 
 class EndUsers::RegistrationsController < Devise::RegistrationsController
 
-  def after_sign_in_path_for(resource)
-    root_path
-  end
 
-  def after_sign_out_path_for(resource_or_scope)
-    root_path
-  end
 
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
