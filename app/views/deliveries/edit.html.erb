@@ -20,31 +20,32 @@
 	     		<% end %>
 	     	</div>
 
- 		<div class="col-md-12">
- 			<table class="deli_table">
+ 		<div class="col-xs-12 col-md-12">
+ 			<table class="deli_table col-xs-12">
+ 				<%= form_for(@delivery, url: delivery_path) do |f| %>
  				<tbody>
- 					<%= form_for(@delivery, url: delivery_path) do |f| %>
 	 					<tr>
 	 						<th><%= f.label :zipcord, "郵便番号(ハイフンなし)" %></th>
 	 						<td><%= f.text_field :zipcord %></td>
-	 						<td></td>
 	 					</tr>
 
 	 					<tr>
 	 						<th><%= f.label :address, "住所" %></th>
-	 						<td><%= f.text_field :address, size: "50x10" %></td>
-	 						<td></td>
+	 						<td><%= f.text_field :address, class: "delivery_address" %></td>
 	 					</tr>
 
 	 					<tr>
 	 						<th><%= f.label :name, "宛名" %></th>
 	 						<td><%= f.text_field :name %></td>
-	 						<td><%= f.submit '編集する', class: "deli-btn btn btn-primary btn-md" %></td>
 	 					</tr>
 	 					<tr>
- 					<% end %>
  				</tbody>
  			</table>
+ 		</div>
+
+ 		<div class="deli-btn col-md-3" style="float: right;">
+ 			<%= f.submit '編集する', class: "btn btn-primary btn-md" %>
+ 			<% end %>
  		</div>
 
  	</div>

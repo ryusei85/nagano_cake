@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
 span {
 	background-color: silver;
 }
@@ -44,4 +45,43 @@ span {
 }
 .deli_table_2 td:nth-child(4) {
 	text-align: center;
+}
+
+.delivery_address {
+	width: 350px;
+	height: 37px;
+}
+
+
+@media screen and (max-width:425px) {
+	
+	.deli_table th{
+		padding-right:45px;
+		padding-top:20px;
+		font-size: 15px;
+	}
+	.deli_table td {
+		padding: 5px;
+	}
+	.delivery_address {
+		width: 250px;
+		height: 37px;
+	}
+	.deli_table_2 {
+		margin-top: 20px;
+		width: 100%;
+	}
+	.deli_table_2 th {
+		width: 70px;
+		height: 40px;
+		padding: 5px;
+	}
+	.deli_table_2 th:nth-child(2) {
+		width: 150px;
+	}
+	.deli_table th{
+		padding-right:45px;
+		padding-left: 30px;
+		padding-top:20px;
+	}
 }
